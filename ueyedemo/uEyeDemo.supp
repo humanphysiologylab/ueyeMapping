@@ -1,0 +1,10 @@
+{
+   	libX11.so.6.2.0
+	Memcheck:Leak
+    obj:/usr/lib/libX11.so.6.2.0
+}
+{
+	libfreetype.so.6.3.10
+	Memcheck:Leak
+	obj:/usr/lib/libfreetype.so.6.3.10
+}

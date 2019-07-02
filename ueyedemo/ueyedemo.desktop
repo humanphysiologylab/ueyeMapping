@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Exec=ueyedmeo
+Name=uEye Demo
+GenericName=Demo application for uEye cameras
+X-KDE-StartupNotify=true
+Icon=ueyedmeo
+Terminal=false
+Categories=Utility;Viewer;Qt;
+Keywords=Qt;C++;Demo;uEye;IDS;
+X-Desktop-File-Install-Version=0.23
