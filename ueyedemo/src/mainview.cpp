@@ -1072,16 +1072,16 @@ void Mainview::onSaveImage ()
 
 	printf("Started\n");
 	long long duration = 2500;
-	ifstream read_config("config.txt", ios::in);
+	//ifstream read_config("config.txt", ios::in);
 
-	cout << read_config.is_open();
-	string line;
-	int r = getline(read_config, line);
-	read_config.close();
+	//cout << read_config.is_open();
+	//string line;
+	//int r = getline(read_config, line);
+	//read_config.close();
 	
-	cout << "Duration set to " << line;
+	//cout << "Duration set to " << line;
 
-	cout << r;
+	//cout << r;
 
         INT ret = IS_SUCCESS;
 	
@@ -1101,14 +1101,17 @@ void Mainview::onSaveImage ()
 	}
 	long long diff;
 
+	cout << "Select duration(in ms):";
+	cin >> duration;
+	bool go_on = 1;
+	long long timeout = (long long)duration * (long long)1000000;
+	
+	int temp_counter = 0;
+	
 	struct timespec currentspec;
 	struct timespec startspec;
 	clock_gettime(CLOCK_REALTIME, &startspec);
 	is_CaptureVideo(m_hCamera, IS_DONT_WAIT);
-	cout << "Select duration(in ms):";
-	cin >> duration;
-	bool go_on = 1;
-	long long timeout = duration * (long long)1000000;
 	while(go_on)
 	{
 		clock_gettime(CLOCK_REALTIME, &currentspec); 
@@ -1118,6 +1121,7 @@ void Mainview::onSaveImage ()
 			go_on = 0;
 		}
 	}
+
 	is_StopLiveVideo(m_hCamera, IS_DONT_WAIT);
 	int size = (width * int((depth + 7)/8))*height;
 	printf("Done\n");
